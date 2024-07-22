@@ -17,10 +17,15 @@
   },
   "homepage": "https://github.com/behnamjz/bit-UIKit#readme",
   "scripts": {
-    "sass": "node-sass src/scss -o dist/css",
-    "sass:watch": "node-sass src/styles/scss -o dist/css --watch"
+    "sass": "node-sass src/styles/scss -o dist/css --verbose",
+    "sass:watch": "node-sass src/styles/scss -o dist/css --watch",
+    "sass:main": "node-sass src/styles/scss dist/css/index.css"
   },
   "dependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2"
+  },
+  "devDependencies": {
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2"
   }
