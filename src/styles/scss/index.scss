@@ -1,2 +1,8 @@
+// scss-docs-start import-stack //
+// Configuration //
 @import "variables";
+@import "mixins";
+
+// Layout & components //
 @import "grid";
+@import "card";

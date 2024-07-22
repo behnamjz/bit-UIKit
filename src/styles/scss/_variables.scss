@@ -293,6 +293,71 @@ $bt-radius-md: calc(0.5rem * var(--bt-scale));
 $bt-radius-lg: calc(1rem * var(--bt-scale));
 $bt-radius-xl: calc(2rem * var(--bt-scale));
 
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret: true !default;
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-reduced-motion: true !default;
+$enable-smooth-scroll: true !default;
+$enable-grid-classes: true !default;
+$enable-container-classes: true !default;
+$enable-cssgrid: false !default;
+$enable-button-pointers: true !default;
+$enable-rfs: true !default;
+$enable-validation-icons: true !default;
+$enable-negative-margins: false !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities: true !default;
+
+$enable-dark-mode: true !default;
+$color-mode-type: data !default; // `data` or `media-query`
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: $blue !default;
+$link-decoration: underline !default;
+$link-shade-percentage: 20% !default;
+$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
+$link-hover-decoration: null !default;
+
+$stretched-link-pseudo-element: after !default;
+$stretched-link-z-index: 1 !default;
+
+// Prefix for :root CSS variables
+$variable-prefix: bs- !default;
+$prefix: $variable-prefix !default;
+
+// scss-docs-start border-variables
+$border-width: 1px !default;
+$border-widths: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px) !default;
+$border-style: solid !default;
+$border-color: $bt-color-gray-3 !default;
+$border-color-translucent: rgba($black, .175) !default;
+// scss-docs-end border-variables
+
+// scss-docs-start border-radius-variables
+$border-radius: .375rem !default;
+$border-radius-sm: .25rem !default;
+$border-radius-lg: .5rem !default;
+$border-radius-xl: 1rem !default;
+$border-radius-xxl: 2rem !default;
+$border-radius-pill: 50rem !default;
+// scss-docs-end border-radius-variables
+// fusv-disable
+$border-radius-2xl: $border-radius-xxl !default;
 
 // Grid breakpoints
 $grid-breakpoints: (
@@ -314,3 +379,36 @@ $container-max-widths: (
 // Grid columns
 $grid-columns: 12;
 $grid-gutter-width: 30px;
+
+
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  ) !default;
+
+// scss-docs-start card-variables
+$card-spacer-y: $spacer !default;
+$card-spacer-x: $spacer !default;
+$card-title-spacer-y: $spacer * .5 !default;
+$card-title-color: null !default;
+$card-subtitle-color: null !default;
+$card-border-width: var(--#{$prefix}border-width) !default;
+$card-border-color: var(--#{$prefix}border-color-translucent) !default;
+$card-border-radius: var(--#{$prefix}border-radius) !default;
+$card-box-shadow: null !default;
+$card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
+$card-cap-padding-y: $card-spacer-y * .5 !default;
+$card-cap-padding-x: $card-spacer-x !default;
+$card-cap-bg: rgba(var(--#{$prefix}body-color-rgb), .03) !default;
+$card-cap-color: null !default;
+$card-height: null !default;
+$card-color: null !default;
+$card-bg: var(--#{$prefix}body-bg) !default;
+$card-img-overlay-padding: $spacer !default;
+$card-group-margin: $grid-gutter-width * .5 !default;
