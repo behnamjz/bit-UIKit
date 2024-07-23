@@ -1,5 +1,10 @@
+// Helpers
+@import "mixins/breakpoints";
+
 // Skins
 @import "mixins/border-radius";
 @import "mixins/box-shadow";
-@import "mixins/breakpoints";
+
+// Layout
 @import "mixins/containers";
+@import "mixins/grid";
