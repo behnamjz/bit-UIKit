@@ -1,9 +1,22 @@
+// Vendor
+@import "vendor/rfs";
+
+// Deprecate
+@import "mixins/deprecate";
+
 // Helpers
 @import "mixins/breakpoints";
+@import "mixins/color-mode";
+@import "mixins/color-scheme";
 
 // Skins
 @import "mixins/border-radius";
 @import "mixins/box-shadow";
+@import "mixins/gradients";
+@import "mixins/transition";
+
+// Utilities
+@import "mixins/utilities";
 
 // Layout
 @import "mixins/containers";
