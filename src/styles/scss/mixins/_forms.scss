@@ -57,7 +57,7 @@
     }
   }
 
-  .form-control {
+  .bt-form-control {
     @include form-validation-state-selector($state) {
       border-color: $border-color;
 
@@ -85,7 +85,7 @@
   }
 
   // stylelint-disable-next-line selector-no-qualifying-type
-  textarea.form-control {
+  textarea.bt-form-control {
     @include form-validation-state-selector($state) {
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
@@ -94,7 +94,7 @@
     }
   }
 
-  .form-select {
+  .bt-form-select {
     @include form-validation-state-selector($state) {
       border-color: $border-color;
 
@@ -124,7 +124,7 @@
     }
   }
 
-  .form-control-color {
+  .bt-form-control-color {
     @include form-validation-state-selector($state) {
       @if $enable-validation-icons {
         width: add($form-color-width, $input-height-inner);
@@ -132,7 +132,7 @@
     }
   }
 
-  .form-check-input {
+  .bt-form-check-input {
     @include form-validation-state-selector($state) {
       border-color: $border-color;
 
@@ -144,23 +144,23 @@
         box-shadow: $focus-box-shadow;
       }
 
-      ~.form-check-label {
+      ~.bt-form-check-label {
         color: $color;
       }
     }
   }
 
-  .form-check-inline .form-check-input {
+  .bt-form-check-inline .bt-form-check-input {
     ~.#{$state}-feedback {
       margin-left: .5em;
     }
   }
 
-  .input-group {
+  .bt-input-group {
 
-    >.form-control:not(:focus),
-    >.form-select:not(:focus),
-    >.form-floating:not(:focus-within) {
+    >.bt-form-control:not(:focus),
+    >.bt-form-select:not(:focus),
+    >.bt-form-floating:not(:focus-within) {
       @include form-validation-state-selector($state) {
         @if $state =="valid" {
           z-index: 3;
