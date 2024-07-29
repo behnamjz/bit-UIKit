@@ -47,7 +47,7 @@
     border-color: var(--#{$prefix}btn-hover-border-color);
   }
 
-  .btn-check+&:hover {
+  .bt-btn-check+&:hover {
     // override for the checkbox/radio buttons
     color: var(--#{$prefix}btn-color);
     background-color: var(--#{$prefix}btn-bg);
@@ -71,7 +71,7 @@
     }
   }
 
-  .btn-check:focus-visible+& {
+  .bt-btn-check:focus-visible+& {
     border-color: var(--#{$prefix}btn-hover-border-color);
     outline: 0;
 
@@ -86,8 +86,8 @@
     }
   }
 
-  .btn-check:checked+&,
-  :not(.btn-check)+&:active,
+  .bt-btn-check:checked+&,
+  :not(.bt-btn-check)+&:active,
   &:first-child:active,
   &.active,
   &.show {
@@ -112,7 +112,7 @@
     }
   }
 
-  .btn-check:checked:focus-visible+& {
+  .bt-btn-check:checked:focus-visible+& {
 
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows {
@@ -145,7 +145,7 @@
 
 // scss-docs-start btn-variant-loops
 @each $color, $value in $theme-colors {
-  .btn-#{$color} {
+  .bt-btn-#{$color} {
     @if $color =="light" {
       @include button-variant($value,
         $value,
@@ -171,7 +171,7 @@
 }
 
 @each $color, $value in $theme-colors {
-  .btn-outline-#{$color} {
+  .bt-btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
@@ -184,7 +184,7 @@
 //
 
 // Make a button look and behave like a link
-.btn-link {
+.bt-btn-link {
   --#{$prefix}btn-font-weight: #{$font-weight-normal};
   --#{$prefix}btn-color: #{$btn-link-color};
   --#{$prefix}btn-bg: transparent;
@@ -225,10 +225,10 @@
 // Button Sizes
 //
 
-.btn-lg {
+.bt-btn-lg {
   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
 }
 
-.btn-sm {
+.bt-btn-sm {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
 }
