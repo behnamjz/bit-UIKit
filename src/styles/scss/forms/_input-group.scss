@@ -1,0 +1,135 @@
+//
+// Base styles
+//
+
+.bt-input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; // For form validation feedback
+  align-items: stretch;
+  width: 100%;
+
+  >.bt-form-control,
+  >.bt-form-select,
+  >.bt-form-floating {
+    position: relative; // For focus state's z-index
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0; // https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size
+  }
+
+  // Bring the "active" form control to the top of surrounding elements
+  >.bt-form-control:focus,
+  >.bt-form-select:focus,
+  >.bt-form-floating:focus-within {
+    z-index: 5;
+  }
+
+  // Ensure buttons are always above inputs for more visually pleasing borders.
+  // This isn't needed for `.bt-input-group-text` since it shares the same border-color
+  // as our inputs.
+  .bt-btn {
+    position: relative;
+    z-index: 2;
+
+    &:focus {
+      z-index: 5;
+    }
+  }
+}
+
+
+// Textual addons
+//
+// Serves as a catch-all element for any text or radio/checkbox input you wish
+// to prepend or append to an input.
+
+.bt-input-group-text {
+  display: flex;
+  align-items: center;
+  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+  @include font-size($input-font-size); // Match inputs
+  font-weight: $input-group-addon-font-weight;
+  line-height: $input-line-height;
+  color: $input-group-addon-color;
+  text-align: center;
+  white-space: nowrap;
+  background-color: $input-group-addon-bg;
+  border: $input-border-width solid $input-group-addon-border-color;
+  @include border-radius($input-border-radius);
+}
+
+
+// Sizing
+//
+// Remix the default form control sizing classes into new ones for easier
+// manipulation.
+
+.bt-input-group-lg>.bt-form-control,
+.bt-input-group-lg>.bt-form-select,
+.bt-input-group-lg>.bt-input-group-text,
+.bt-input-group-lg>.btn {
+  padding: $input-padding-y-lg $input-padding-x-lg;
+  @include font-size($input-font-size-lg);
+  @include border-radius($input-border-radius-lg);
+}
+
+.bt-input-group-sm>.bt-form-control,
+.bt-input-group-sm>.bt-form-select,
+.bt-input-group-sm>.bt-input-group-text,
+.bt-input-group-sm>.btn {
+  padding: $input-padding-y-sm $input-padding-x-sm;
+  @include font-size($input-font-size-sm);
+  @include border-radius($input-border-radius-sm);
+}
+
+.bt-input-group-lg>.bt-form-select,
+.bt-input-group-sm>.bt-form-select {
+  padding-right: $form-select-padding-x + $form-select-indicator-padding;
+}
+
+
+// Rounded corners
+//
+// These rulesets must come after the sizing ones to properly override sm and lg
+// border-radius values when extending. They're more specific than we'd like
+// with the `.bt-input-group >` part, but without it, we cannot override the sizing.
+
+// stylelint-disable-next-line no-duplicate-selectors
+.bt-input-group {
+  &:not(.has-validation) {
+
+    > :not(:last-child):not(.bt-dropdown-toggle):not(.bt-dropdown-menu):not(.bt-form-floating),
+    >.bt-dropdown-toggle:nth-last-child(n + 3),
+    >.bt-form-floating:not(:last-child)>.bt-form-control,
+    >.bt-form-floating:not(:last-child)>.bt-form-select {
+      @include border-end-radius(0);
+    }
+  }
+
+  &.has-validation {
+
+    > :nth-last-child(n + 3):not(.bt-dropdown-toggle):not(.bt-dropdown-menu):not(.bt-form-floating),
+    >.bt-dropdown-toggle:nth-last-child(n + 4),
+    >.bt-form-floating:nth-last-child(n + 3)>.bt-form-control,
+    >.bt-form-floating:nth-last-child(n + 3)>.bt-form-select {
+      @include border-end-radius(0);
+    }
+  }
+
+  $validation-messages: "";
+
+  @each $state in map-keys($form-validation-states) {
+    $validation-messages: $validation-messages + ":not(." + unquote($state) + "-tooltip)" + ":not(." + unquote($state) + "-feedback)";
+  }
+
+  > :not(:first-child):not(.bt-dropdown-menu)#{$validation-messages} {
+    margin-left: calc(#{$input-border-width} * -1); // stylelint-disable-line function-disallowed-list
+    @include border-start-radius(0);
+  }
+
+  >.bt-form-floating:not(:first-child)>.bt-form-control,
+  >.bt-form-floating:not(:first-child)>.bt-form-select {
+    @include border-start-radius(0);
+  }
+}
