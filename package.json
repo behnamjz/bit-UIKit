@@ -1,7 +1,7 @@
 {
   "name": "bit-uikit",
-  "version": "1.0.0",
-  "description": "Simple UIKIT for start VueJs, NuxtJs frontend projects",
+  "version": "1.0.1",
+  "description": "Welcome to bit-UIKit Framework, a lightweight and easy-to-use CSS framework designed to help you create beautiful and responsive websites with minimal effort.",
   "main": "index.js",
   "repository": {
     "type": "git",
