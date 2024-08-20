@@ -1,8 +1,9 @@
 {
   "name": "bit-uikit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Welcome to bit-UIKit Framework, a lightweight and easy-to-use CSS framework designed to help you create beautiful and responsive websites with minimal effort.",
   "main": "index.js",
+  "style": "./dist/css/index.css",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/behnamjz/bit-UIKit.git"
@@ -25,5 +26,11 @@
   "devDependencies": {
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2"
-  }
+  },
+  "keywords": [
+    "framework",
+    "ui-kit",
+    "bittestan-uikit",
+    "bit-uikit"
+  ]
 }
